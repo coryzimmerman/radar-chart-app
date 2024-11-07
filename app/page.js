@@ -18,26 +18,8 @@ const Page = () => {
   };
 
   return (
-    <div
-      style={{
-        width: "100vw",
-        height: "100vh",
-        margin: 0,
-        overflow: "visible", // Added to prevent clipping
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        paddingTop: "50px",
-        paddingBottom: "50px",
-        backgroundColor: "#f5f5f5",
-      }}
-    >
-      <h1>Professional Abilities Radar Chart</h1>
-      <RadarChartComponent
-        data={radarData}
-        options={options}
-        size={{ width: "100%", height: "100%" }} // Set size to fill available space
-      />
+    <div className="w-screen h-screen m-0 overflow-visible flex flex-col items-center pt-[50px] pb-[50px] bg-[#f0f0f0]">
+      <RadarChartComponent data={radarData} options={options} />
     </div>
   );
 };

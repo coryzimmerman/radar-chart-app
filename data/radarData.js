@@ -2,7 +2,7 @@
 
 const radarData = [
   {
-    name: "Q1 2024",
+    name: "Baseline",
     data: [
       { axis: "Thematic Units", value: 2 },
       { axis: "Session Structure", value: 4 },
@@ -16,7 +16,7 @@ const radarData = [
     ],
   },
   {
-    name: "Q2 2024",
+    name: "Previous",
     data: [
       { axis: "Thematic Units", value: 5 },
       { axis: "Session Structure", value: 6 },
@@ -30,7 +30,7 @@ const radarData = [
     ],
   },
   {
-    name: "Q3 2024",
+    name: "Current",
     data: [
       { axis: "Thematic Units", value: 7 },
       { axis: "Session Structure", value: 8 },
@@ -77,4 +77,20 @@ export const pillars = [
   },
 ];
 
-export let userResponses = []; // Initialize an array to store user responses
+export const pillarColors = {
+  "Powerful Practice": "#F3467C",
+  "Streamlined Systems": "#00ADBB",
+  "Intentional Growth": "#FFC728",
+};
+
+export const questionToPillar = {
+  "Thematic Units": "Powerful Practice",
+  "Session Structure": "Powerful Practice",
+  "Evidence-Backed Strategies": "Powerful Practice",
+  Paperwork: "Streamlined Systems",
+  "Data Collection": "Streamlined Systems",
+  "Therapy Planning": "Streamlined Systems",
+  "Individual Growth": "Intentional Growth",
+  "School Collaboration": "Intentional Growth",
+  "Community Impact": "Intentional Growth",
+};
