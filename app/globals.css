@@ -19,3 +19,30 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* styles/globals.css */
+
+.tooltip {
+  position: absolute;
+  text-align: left;
+  width: auto;
+  height: auto;
+  padding: 8px;
+  font: 12px sans-serif;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  pointer-events: none;
+  opacity: 0;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+}
+
+.legend rect {
+  stroke-width: 1;
+  stroke: #ccc;
+}
+
+.legend text {
+  font-size: 12px;
+  fill: #737373;
+}

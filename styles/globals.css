@@ -1,0 +1,16 @@
+/* ...existing styles... */
+body,
+html,
+#__next {
+  overflow: visible; /* Allow overflow to prevent clipping */
+}
+body {
+  font-size: 16px; /* Existing increased base font size */
+  color: #000; /* Set text color to black */
+}
+/* ...existing styles... */
+
+.questionnaire {
+  font-size: 16px; /* Increased font size for questionnaire */
+  /* Add additional styles as needed */
+}
