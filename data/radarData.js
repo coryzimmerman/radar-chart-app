@@ -30,7 +30,7 @@ const radarData = [
     ],
   },
   {
-    name: "Current",
+    name: "Latest",
     data: [
       { axis: "Thematic Units", value: 7 },
       { axis: "Session Structure", value: 8 },
