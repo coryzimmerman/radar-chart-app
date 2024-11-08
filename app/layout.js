@@ -1,5 +1,6 @@
 import localFont from "next/font/local";
 import "./globals.css";
+import Link from "next/link"; // Added import
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -23,6 +24,10 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <header className="flex justify-center w-full p-4 space-x-4 bg-gray-700 shadow">
+          <Link href="/">Static Chart</Link>
+          <Link href="/animated">Animated Chart</Link>
+        </header>
         {children}
       </body>
     </html>
