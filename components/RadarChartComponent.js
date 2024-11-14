@@ -6,7 +6,6 @@ import { questionToPillar, pillarColors, pillars } from "@/data/radarData.js";
 const RadarChartComponent = ({ data, options }) => {
   const chartRef = useRef(null);
 
-
   // all configuration options here
   const chartOptions = {
     // Dimensions of the chart
@@ -33,7 +32,7 @@ const RadarChartComponent = ({ data, options }) => {
     // Opacity of the concentric circles (0 to 1)
     opacityCircles: 0.1,
     // Stroke width of the radar lines
-    strokeWidth: 6,
+    strokeWidth: 8, // Make the plot lines thicker
     // Determines if the radar lines have rounded corners
     roundStrokes: true,
     // Format function for level values
@@ -63,7 +62,7 @@ const RadarChartComponent = ({ data, options }) => {
     // Text color for axis labels
     axisLabelColor: "#000",
     // Opacity of the wedges (0 to 1)
-    wedgeOpacity: 0.1,
+    wedgeOpacity: 1,
     // Color function for radar lines
     color: (i) => {
       if (i === data.length - 1) return "teal"; // Most recent results
@@ -74,6 +73,12 @@ const RadarChartComponent = ({ data, options }) => {
     style: (i) => {
       if (i === data.length - 1) return "solid"; // Most recent results
       return "dashed"; // Previous and baseline results
+    },
+    // Dash array function for radar lines
+    dasharray: (i) => {
+      if (i === data.length - 1) return "0"; // Solid line
+      if (i === data.length - 2) return "6 4"; // Longer dashes
+      return "2 2"; // Shorter dashes
     },
     // Spread any additional options provided
     ...options,
@@ -125,11 +130,13 @@ const RadarChartComponent = ({ data, options }) => {
     renderChart();
   }, [data, options]);
 
+  // If there are any CSS files or style tags, verify they don't override .radarStroke
+
   // Update legend items using chartOptions
   const legendItems = data.map((dataset, index) => ({
     name: dataset.name,
     color: chartOptions.color(index),
-    style: chartOptions.style(index),
+    dasharray: chartOptions.dasharray(index),
   }));
 
   return (
@@ -137,21 +144,27 @@ const RadarChartComponent = ({ data, options }) => {
       <div ref={chartRef} />
       <div className="absolute flex space-x-6 transform -translate-x-1/2 top-4 left-1/2">
         {legendItems.map((item) => (
-          <div key={item.name} className="flex items-center space-x-2">
-            <svg width="40" height="10">
-              <line
-                x1="0"
-                y1="5"
-                x2="40"
-                y2="5"
-                stroke={item.color}
-                strokeWidth="2"
-                strokeDasharray={item.style === "dashed" ? "4 2" : "0"}
-              />
-            </svg>
-            <span className="text-sm font-medium text-gray-800">
-              {item.name}
-            </span>
+          <div key={item.name} className="flex flex-col items-center space-y-1">
+            <div className="flex items-center space-x-2">
+              <svg width="40" height="10">
+                <line
+                  x1="0"
+                  y1="5"
+                  x2="40"
+                  y2="5"
+                  stroke={item.color}
+                  strokeWidth={chartOptions.strokeWidth} // Use the same stroke width
+                  strokeDasharray={item.dasharray}
+                />
+              </svg>
+              <span className="text-sm font-medium text-gray-800">
+                {item.name}
+              </span>
+            </div>
+            <div
+              style={{ backgroundColor: item.color }}
+              className="w-4 h-4"
+            ></div>
           </div>
         ))}
       </div>

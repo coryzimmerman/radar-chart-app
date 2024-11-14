@@ -50,7 +50,6 @@ export default radarData;
 export const pillars = [
   {
     name: "Powerful Practice",
-    color: "#F3467C",
     sections: [
       { name: "Thematic Units" },
       { name: "Session Structure" },
@@ -59,7 +58,6 @@ export const pillars = [
   },
   {
     name: "Streamlined Systems",
-    color: "#00ADBB",
     sections: [
       { name: "Paperwork" },
       { name: "Data Collection" },
@@ -68,7 +66,6 @@ export const pillars = [
   },
   {
     name: "Intentional Growth",
-    color: "#FFC728",
     sections: [
       { name: "Individual Growth" },
       { name: "School Collaboration" },
@@ -78,9 +75,9 @@ export const pillars = [
 ];
 
 export const pillarColors = {
-  "Powerful Practice": "#F3467C",
-  "Streamlined Systems": "#00ADBB",
-  "Intentional Growth": "#FFC728",
+  "Powerful Practice": "#FDDAE5",
+  "Streamlined Systems": "#CCEFF1",
+  "Intentional Growth": "#FFF4D4",
 };
 
 export const questionToPillar = {

@@ -11,14 +11,14 @@ const Page = () => {
     wrapWidth: 60,
     opacityArea: 0.35,
     dotRadius: 4,
-    opacityCircles: 0.1,
+    opacityCircles: 0.0,
     strokeWidth: 2,
     roundStrokes: false,
     // The color scale is handled inside the RadarChart function
   };
 
   return (
-    <div className="w-screen h-screen m-0 overflow-visible flex flex-col items-center pt-[50px] pb-[50px] bg-[#f0f0f0]">
+    <div className="w-screen h-screen m-0 overflow-visible flex flex-col items-center pt-[50px] pb-[50px] bg-white">
       <RadarChartComponent data={radarData} options={options} />
     </div>
   );
